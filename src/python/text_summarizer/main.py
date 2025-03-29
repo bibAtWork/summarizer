@@ -26,14 +26,14 @@ if not os.path.exists("summaries"):
     os.makedirs("summaries")
 
 # Initialize Ollama client and LLM
-llm = Ollama(model="llama3", temperature=0.1, request_timeout=300.0)
+llm_client = Ollama(model="llama3", temperature=0.1, request_timeout=600.0)
 
 # Initialize embeddings model
 embed_model = HuggingFaceEmbedding(model_name="intfloat/e5-base-v2")
 
 # Configure global settings
 Settings.embed_model = embed_model
-Settings.llm = llm
+Settings.llm = llm_client
 Settings.chunk_size = 1024
 
 # Initialize ChromaDB
@@ -135,8 +135,8 @@ def generate_summary(text_chunks, image_texts):
     """
     
     # Call Ollama for summarization
-    response = llm_client.generate(model="llama3", prompt=prompt)
-    summary = response['response']
+    response = llm_client.complete(prompt)
+    summary = response.text
     
     return summary
 
