@@ -1,0 +1,15 @@
+streamlit==1.43.2
+PyMuPDF==1.25.4
+opencv-python==4.11.0.86
+Pillow==11.1.0
+langchain==0.3.20
+llama-index-core==0.12.24.post1
+llama-index-vector-stores-chroma==0.4.1
+llama-index-embeddings-huggingface==0.5.2
+chromadb==0.6.3
+ollama==0.4.7
+transformers==4.49.0
+sentence-transformers==3.4.1
+numpy==2.2.4
+torch==2.6.0
+llama-index-llms-ollama==0.5.4
